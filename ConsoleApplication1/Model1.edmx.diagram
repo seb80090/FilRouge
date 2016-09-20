@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="44e8211a3ba449dfbc7aae6089dbd65c" Name="Diagram1">
+        <EntityTypeShape EntityType="fil_rougeModel.article" Width="1.5" PointX="7" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="fil_rougeModel.bon_de_livraison" Width="1.5" PointX="12" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="fil_rougeModel.client" Width="1.5" PointX="12" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="fil_rougeModel.commande" Width="1.5" PointX="2.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="fil_rougeModel.compose" Width="1.5" PointX="2.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="fil_rougeModel.fourni" Width="1.5" PointX="9.125" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="fil_rougeModel.fournisseur" Width="1.5" PointX="11.875" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="fil_rougeModel.possede" Width="1.5" PointX="9.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="fil_rougeModel.rubrique" Width="1.5" PointX="4.875" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="fil_rougeModel.service_commercial" Width="1.5" PointX="9.875" PointY="6.875" IsExpanded="true" />
+        <AssociationConnector Association="fil_rougeModel.FK_compose_nom_court_article" ManuallyRouted="false" />
+        <AssociationConnector Association="fil_rougeModel.FK_fourni_nom_court_article" ManuallyRouted="false" />
+        <AssociationConnector Association="fil_rougeModel.FK_possede_nom_court_article" ManuallyRouted="false" />
+        <AssociationConnector Association="fil_rougeModel.FK_bon_de_livraison_num_commande" ManuallyRouted="false" />
+        <AssociationConnector Association="fil_rougeModel.FK_possede_num_bon_livraison" ManuallyRouted="false" />
+        <AssociationConnector Association="fil_rougeModel.FK_client_id_commercial" ManuallyRouted="false" />
+        <AssociationConnector Association="fil_rougeModel.FK_commande_num_client" ManuallyRouted="false" />
+        <AssociationConnector Association="fil_rougeModel.FK_compose_num_commande" ManuallyRouted="false" />
+        <AssociationConnector Association="fil_rougeModel.FK_fourni_siret_fourni" ManuallyRouted="false" />
+        <AssociationConnector Association="fil_rougeModel.appartient" ManuallyRouted="false" />
+        <AssociationConnector Association="fil_rougeModel.contient" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
