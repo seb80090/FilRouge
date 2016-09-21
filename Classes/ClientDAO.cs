@@ -42,7 +42,7 @@ namespace Classes
                 cli.pro_ou_part_client = Convert.ToBoolean(lecture["pro_ou_part_client"]);
                 cli.coef_client = Convert.ToDecimal(lecture["coef_client"]);
                 cli.Affichage = lecture["prenom_client"].ToString() + " " + lecture["nom_client"].ToString();
-
+                cli.coef_client = Convert.ToDecimal(lecture["coef_client"]);
                 liste.Add(cli);
             }
 
@@ -75,6 +75,7 @@ namespace Classes
                 cli.pro_ou_part_client = Convert.ToBoolean(lecture["pro_ou_part_client"]);
                 cli.id_commercial = Convert.ToInt32(lecture["id_commercial"]);
                 cli.Affichage = lecture["prenom_client"].ToString() + " " + lecture["nom_client"].ToString();
+                cli.coef_client = Convert.ToDecimal(lecture["coef_client"]);
 
             }
             lecture.Close();
@@ -105,7 +106,8 @@ namespace Classes
                 varclient.tel_mobile_client = lecture["tel_mobile_client"].ToString();
                 varclient.mail_client = lecture["mail_client"].ToString();
                 varclient.pro_ou_part_client = Convert.ToBoolean(lecture["pro_ou_part_client"]);
-                //requete.ExecuteNonQuery();
+                varclient.coef_client = Convert.ToDecimal(lecture["coef_client"]);
+                
                 varclient.Affichage = lecture["prenom_client"].ToString() + " " + lecture["nom_client"].ToString();
                 liste.Add(varclient);
             }
@@ -118,7 +120,7 @@ namespace Classes
 
         {
             connect.Open();
-            SqlCommand requete = new SqlCommand ("insert into client (num_client, nom_client, prenom_client, adresse_livraison_client, code_post_liv_client, ville_liv_client, adresse_facturation_client, code_post_facturation_client, ville_facturation_client, siret_client, tel_fix_client, tel_mobile_client, mail_client, pro_ou_part_client) values( @num_client, @nom_client, @Prenom_client, @adresse_livraison_client, @code_post_liv_client, @ville_liv_client, @adresse_facturation_client, @code_post_facturation_client, @ville_facturation_client, @siret_client, @tel_fix_client, @tel_mobile_client, @mail_client, @pro_ou_part_client)", connect);
+            SqlCommand requete = new SqlCommand ("insert into client (num_client, nom_client, prenom_client, adresse_livraison_client, code_post_liv_client, ville_liv_client, adresse_facturation_client, code_post_facturation_client, ville_facturation_client, siret_client, tel_fix_client, tel_mobile_client, mail_client, pro_ou_part_client, coef_client, id_commercial) values( @num_client, @nom_client, @Prenom_client, @adresse_livraison_client, @code_post_liv_client, @ville_liv_client, @adresse_facturation_client, @code_post_facturation_client, @ville_facturation_client, @siret_client, @tel_fix_client, @tel_mobile_client, @mail_client, @pro_ou_part_client, @coef_client, @id_commercial)", connect);
             requete.Parameters.AddWithValue("@num_client", varclient.num_client);
             requete.Parameters.AddWithValue("@nom_client", varclient.nom_client);
             requete.Parameters.AddWithValue("@Prenom_client", varclient.Prenom_client);
@@ -133,6 +135,8 @@ namespace Classes
             requete.Parameters.AddWithValue("@tel_mobile_client", varclient.tel_mobile_client);
             requete.Parameters.AddWithValue("@mail_client", varclient.mail_client);
             requete.Parameters.AddWithValue("@pro_ou_part_client", varclient.pro_ou_part_client);
+            requete.Parameters.AddWithValue("@coef_client", varclient.coef_client);
+            requete.Parameters.AddWithValue("@id_commercial", varclient.id_commercial);
             requete.ExecuteNonQuery();
             connect.Close();
         }
@@ -157,9 +161,10 @@ namespace Classes
 
         {
             connect.Open();
-            SqlCommand requete = new SqlCommand("update set nom_client = @nom, Prenom_client = @Prenom, adresse_livraison_client = @adresse_livraison_client, code_post_liv_client = @code_post_liv_client,ville_liv_client = @ville_liv_client , adresse_facturation_client = @adresse_facturation_client, code_post_facturation_client= @ code_post_facturation_client, ville_facturation_client = @ville_facturation_client, siret_client = @siret_client, tel_fix_client=@ tel_fix_client, tel_mobile_client = @ tel_mobile_client, mail_client = @ mail_client, pro_ou_part_client = @ pro_ou_part_client)", connect);
+            SqlCommand requete = new SqlCommand("update client set nom_client = @nom, Prenom_client = @Prenom, adresse_livraison_client = @adresse_livraison_client, code_post_liv_client = @code_post_liv_client,ville_liv_client = @ville_liv_client , adresse_facturation_client = @adresse_facturation_client, code_post_facturation_client= @code_post_facturation_client, ville_facturation_client = @ville_facturation_client, siret_client = @siret_client, tel_fix_client=@tel_fix_client, tel_mobile_client = @tel_mobile_client, mail_client = @mail_client, pro_ou_part_client = @pro_ou_part_client, coef_client = @coef_client, id_commercial = @id_commercial where num_client = @num_client", connect);
+            requete.Parameters.AddWithValue("@num_client", varclient.num_client);
             requete.Parameters.AddWithValue("@nom", varclient.nom_client);
-            requete.Parameters.AddWithValue("@Prenom_client", varclient.Prenom_client);
+            requete.Parameters.AddWithValue("@Prenom", varclient.Prenom_client);
             requete.Parameters.AddWithValue("@adresse_livraison_client", varclient.adresse_livraison_client);
             requete.Parameters.AddWithValue("@code_post_liv_client", varclient.code_post_liv_client);
             requete.Parameters.AddWithValue("@ville_liv_client", varclient.ville_liv_client);
@@ -171,7 +176,9 @@ namespace Classes
             requete.Parameters.AddWithValue("@tel_mobile_client", varclient.tel_mobile_client);
             requete.Parameters.AddWithValue("@mail_client", varclient.mail_client);
             requete.Parameters.AddWithValue("@pro_ou_part_client", varclient.pro_ou_part_client);
-
+            requete.Parameters.AddWithValue("@coef_client", varclient.coef_client);
+            requete.Parameters.AddWithValue("@id_commercial", varclient.id_commercial);
+     
             requete.ExecuteNonQuery();
             connect.Close();
         }

@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mois = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Année = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CAHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CATTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,11 +45,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mois = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Année = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CAHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CATTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +63,32 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(503, 364);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Nom
+            // 
+            this.Nom.HeaderText = "nom";
+            this.Nom.Name = "Nom";
+            // 
+            // mois
+            // 
+            this.mois.HeaderText = "mois";
+            this.mois.Name = "mois";
+            // 
+            // Année
+            // 
+            this.Année.HeaderText = "Année";
+            this.Année.Name = "Année";
+            // 
+            // CAHT
+            // 
+            this.CAHT.HeaderText = "CA HT";
+            this.CAHT.Name = "CAHT";
+            // 
+            // CATTC
+            // 
+            this.CATTC.HeaderText = "CA TTC";
+            this.CATTC.Name = "CATTC";
             // 
             // label2
             // 
@@ -95,7 +121,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(133, 97);
+            this.radioButton2.Location = new System.Drawing.Point(133, 102);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(71, 17);
             this.radioButton2.TabIndex = 111;
@@ -168,31 +194,6 @@
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Fournisseur";
             this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // Nom
-            // 
-            this.Nom.HeaderText = "nom";
-            this.Nom.Name = "Nom";
-            // 
-            // mois
-            // 
-            this.mois.HeaderText = "mois";
-            this.mois.Name = "mois";
-            // 
-            // Année
-            // 
-            this.Année.HeaderText = "Année";
-            this.Année.Name = "Année";
-            // 
-            // CAHT
-            // 
-            this.CAHT.HeaderText = "CA HT";
-            this.CAHT.Name = "CAHT";
-            // 
-            // CATTC
-            // 
-            this.CATTC.HeaderText = "CA TTC";
-            this.CATTC.Name = "CATTC";
             // 
             // CAclient
             // 

@@ -107,7 +107,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(474, 279);
+            this.label4.Location = new System.Drawing.Point(479, 327);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 3;
@@ -235,7 +235,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(476, 109);
+            this.label21.Location = new System.Drawing.Point(476, 87);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(62, 13);
             this.label21.TabIndex = 100;
@@ -271,7 +271,7 @@
             this.groupBox1.Size = new System.Drawing.Size(255, 50);
             this.groupBox1.TabIndex = 113;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tri Client";
+            this.groupBox1.Text = "tri client";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // radioButton3
@@ -336,7 +336,7 @@
             // 
             // textNum_client
             // 
-            this.textNum_client.Location = new System.Drawing.Point(293, 106);
+            this.textNum_client.Location = new System.Drawing.Point(293, 87);
             this.textNum_client.Name = "textNum_client";
             this.textNum_client.ReadOnly = true;
             this.textNum_client.Size = new System.Drawing.Size(177, 20);
@@ -398,6 +398,7 @@
             this.textCommuneFac.Name = "textCommuneFac";
             this.textCommuneFac.Size = new System.Drawing.Size(177, 20);
             this.textCommuneFac.TabIndex = 137;
+            this.textCommuneFac.TextChanged += new System.EventHandler(this.textCommuneFac_TextChanged);
             // 
             // textTelMobClient
             // 
@@ -498,9 +499,9 @@
             this.textCommercial.Controls.Add(this.text_tel_commercial);
             this.textCommercial.Controls.Add(this.text_prenom_commercial);
             this.textCommercial.Controls.Add(this.text_nom_commercial);
-            this.textCommercial.Location = new System.Drawing.Point(645, 445);
+            this.textCommercial.Location = new System.Drawing.Point(601, 445);
             this.textCommercial.Name = "textCommercial";
-            this.textCommercial.Size = new System.Drawing.Size(277, 89);
+            this.textCommercial.Size = new System.Drawing.Size(378, 114);
             this.textCommercial.TabIndex = 142;
             this.textCommercial.TabStop = false;
             this.textCommercial.Text = "Commercial";
@@ -509,7 +510,7 @@
             // text_mail_commercial
             // 
             this.text_mail_commercial.AutoSize = true;
-            this.text_mail_commercial.Location = new System.Drawing.Point(6, 131);
+            this.text_mail_commercial.Location = new System.Drawing.Point(155, 64);
             this.text_mail_commercial.Name = "text_mail_commercial";
             this.text_mail_commercial.Size = new System.Drawing.Size(31, 13);
             this.text_mail_commercial.TabIndex = 3;
@@ -518,7 +519,7 @@
             // text_tel_commercial
             // 
             this.text_tel_commercial.AutoSize = true;
-            this.text_tel_commercial.Location = new System.Drawing.Point(148, 65);
+            this.text_tel_commercial.Location = new System.Drawing.Point(6, 64);
             this.text_tel_commercial.Name = "text_tel_commercial";
             this.text_tel_commercial.Size = new System.Drawing.Size(57, 13);
             this.text_tel_commercial.TabIndex = 2;
@@ -537,7 +538,7 @@
             // text_nom_commercial
             // 
             this.text_nom_commercial.AutoSize = true;
-            this.text_nom_commercial.Location = new System.Drawing.Point(6, 54);
+            this.text_nom_commercial.Location = new System.Drawing.Point(155, 27);
             this.text_nom_commercial.Name = "text_nom_commercial";
             this.text_nom_commercial.Size = new System.Drawing.Size(27, 13);
             this.text_nom_commercial.TabIndex = 0;
@@ -547,10 +548,9 @@
             // 
             this.TypeClient.Controls.Add(this.part);
             this.TypeClient.Controls.Add(this.pro);
-            this.TypeClient.Enabled = false;
-            this.TypeClient.Location = new System.Drawing.Point(293, 29);
+            this.TypeClient.Location = new System.Drawing.Point(293, 12);
             this.TypeClient.Name = "TypeClient";
-            this.TypeClient.Size = new System.Drawing.Size(184, 50);
+            this.TypeClient.Size = new System.Drawing.Size(177, 44);
             this.TypeClient.TabIndex = 143;
             this.TypeClient.TabStop = false;
             this.TypeClient.Text = "Type de Client";
@@ -566,6 +566,7 @@
             this.part.TabStop = true;
             this.part.Text = "Particulier";
             this.part.UseVisualStyleBackColor = true;
+            this.part.CheckedChanged += new System.EventHandler(this.part_CheckedChanged);
             // 
             // pro
             // 
@@ -577,6 +578,7 @@
             this.pro.TabStop = true;
             this.pro.Text = "Professionel";
             this.pro.UseVisualStyleBackColor = true;
+            this.pro.CheckedChanged += new System.EventHandler(this.pro_CheckedChanged);
             // 
             // FicheClient
             // 

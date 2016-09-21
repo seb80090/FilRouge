@@ -106,7 +106,6 @@ namespace WindowsFormsApplication4
                 textCodPostFac.Text = cli.code_post_facturation_client;
                 textCommuneFac.Text = cli.ville_facturation_client;
                 textCoef.Text = cli.coef_client.ToString();
-
                 if (cli.pro_ou_part_client == true)
                 {
                     pro.Checked = true;
@@ -159,13 +158,11 @@ namespace WindowsFormsApplication4
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            TypeClient.Enabled = true;
             btnChoix = "ajouter";
             btnOK.Enabled = true;
             btnAnnuler.Enabled = true;
-
-
-            //effacer();
+            effacer();
         }
         public void effacer()
         {
@@ -190,7 +187,8 @@ namespace WindowsFormsApplication4
 
         private void button2_Click(object sender, EventArgs e)
         {
-            btnChoix = "Modifier";
+            TypeClient.Enabled = true;
+            btnChoix = "modifier";
             btnOK.Enabled = true;
             btnAnnuler.Enabled = true;
             //effacer();
@@ -198,10 +196,26 @@ namespace WindowsFormsApplication4
 
         private void button3_Click(object sender, EventArgs e)
         {
-            btnChoix = "Supprimer";
+            btnChoix = "supprimer";
             btnOK.Enabled = true;
             btnAnnuler.Enabled = true;
             //effacer();
+
+            textNum_client.Enabled = false;
+            textNomClient.Enabled = false;
+            textPrenomClient.Enabled = false;
+            textSiretClient.Enabled = false;
+            textAdresseFac.Enabled = false;
+            textCodPostFac.Enabled = false;
+            textCommuneFac.Enabled = false;
+            textAdresseLiv.Enabled = false;
+            textCodPostLiv.Enabled = false;
+            textCommuneLiv.Enabled = false;
+            textTelFixClient.Enabled = false;
+            textTelMobClient.Enabled = false;
+            textMail.Enabled = false;
+            textCoef.Enabled = false;
+
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -211,15 +225,27 @@ namespace WindowsFormsApplication4
 
         private void textAdresseLiv_TextChanged(object sender, EventArgs e)
         {
+            textAdresseLiv.MaxLength = 60;
+            Regex myregex = new System.Text.RegularExpressions.Regex(@"^[0-9]{1,4}[a-zA-Zéàçèâêûîôäëüïö\,.' -]{1,30}$");
+            if (myregex.IsMatch(textAdresseLiv.Text) == false)
+            {
+                textAdresseLiv.BackColor = Color.Salmon;
 
+            }
+
+            else
+            {
+                textAdresseLiv.BackColor = Color.LightGreen;
+
+            }
         }
 
         private void textCodPostLiv_TextChanged(object sender, EventArgs e)
         {
             textCodPostLiv.MaxLength = 5;
 
-            Regex myregex = new System.Text.RegularExpressions.Regex(@"^[0-9][0-9][0-9][0-9][0-9]");
-            if (myregex.IsMatch(textCoef.Text) == false)
+            Regex myregex = new System.Text.RegularExpressions.Regex(@"^[0-9]{5}$");
+            if (myregex.IsMatch(textCodPostLiv.Text) == false)
             {
                 textCodPostLiv.BackColor = Color.Salmon;
 
@@ -234,7 +260,19 @@ namespace WindowsFormsApplication4
 
         private void textCommuneLiv_TextChanged(object sender, EventArgs e)
         {
+            textCommuneLiv.MaxLength = 50;
+            Regex myregex = new System.Text.RegularExpressions.Regex(@"^[a-zA-Zéàçèâêûîôäëüïö\- ]{2,30}$");
+            if (myregex.IsMatch(textCommuneLiv.Text) == false)
+            {
+                textCommuneLiv.BackColor = Color.Salmon;
 
+            }
+
+            else
+            {
+                textCommuneLiv.BackColor = Color.LightGreen;
+
+            }
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
@@ -264,9 +302,14 @@ namespace WindowsFormsApplication4
                 cli.mail_client = textMail.Text;
                 cli.coef_client = Convert.ToDecimal(textCoef.Text);
                 if (pro.Checked == true)
-
                 {
                     cli.pro_ou_part_client = true;
+                    cli.id_commercial = 1;
+                }
+                else
+                {
+                    cli.pro_ou_part_client = false;
+                    cli.id_commercial = 2;
                 }
                 cli.num_client = repo.AutoIncrement();
 
@@ -288,9 +331,20 @@ namespace WindowsFormsApplication4
                 cli.ville_facturation_client = textCommuneFac.Text;
                 cli.siret_client = textSiretClient.Text;
                 cli.tel_fix_client = textTelFixClient.Text;
-                cli.tel_fix_client = textTelMobClient.Text;
+                cli.tel_mobile_client = textTelMobClient.Text;
                 cli.mail_client = textMail.Text;
                 cli.num_client = (int)ListClients.SelectedValue;
+                if (pro.Checked == true)
+                {
+                    cli.pro_ou_part_client = true;
+                    cli.id_commercial = 1;
+                }
+                else
+                {
+                    cli.pro_ou_part_client = false;
+                    cli.id_commercial = 2;
+                }
+
 
                 repo.Update(cli);
                 MessageBox.Show("Client Modifié", "Modification", MessageBoxButtons.OK);
@@ -302,6 +356,7 @@ namespace WindowsFormsApplication4
                 repo.Delete(cli);
                 MessageBox.Show("Client Supprimé", "Suppression", MessageBoxButtons.OK);
             }
+            ListClients.DataSource = repo.List();
             effacer();
 
 
@@ -455,7 +510,19 @@ namespace WindowsFormsApplication4
 
         private void textAdresseFac_TextChanged(object sender, EventArgs e)
         {
+            textAdresseFac.MaxLength = 60;
+            Regex myregex = new System.Text.RegularExpressions.Regex (@"^[0-9]{1,4}[a-zA-Zéàçèâêûîôäëüïö\,.' -]{1,30}$");
+            if (myregex.IsMatch(textAdresseFac.Text) == false)
+            {
+                textAdresseFac.BackColor = Color.Salmon;
 
+            }
+
+            else
+            {
+                textAdresseFac.BackColor = Color.LightGreen;
+
+            }
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -465,7 +532,7 @@ namespace WindowsFormsApplication4
 
         private void textMail_TextChanged(object sender, EventArgs e)
         {
-            Regex myregex = new Regex(@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$");
+            Regex myregex = new Regex(@"([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})");
             if (myregex.IsMatch(textMail.Text) == false)
             {
                 textMail.BackColor = Color.Salmon;
@@ -474,6 +541,38 @@ namespace WindowsFormsApplication4
             {
                 textMail.BackColor = Color.LightGreen;
             }
+        }
+
+        private void textCommuneFac_TextChanged(object sender, EventArgs e)
+        {
+            textCommuneFac.MaxLength = 50;
+            Regex myregex = new System.Text.RegularExpressions.Regex(@"^[a-zA-Zéàçèâêûîôäëüïö\- ]{2,30}$");
+            if (myregex.IsMatch(textCommuneFac.Text) == false)
+            {
+                textCommuneFac.BackColor = Color.Salmon;
+
+            }
+
+            else
+            {
+                textCommuneFac.BackColor = Color.LightGreen;
+
+            }
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pro_CheckedChanged(object sender, EventArgs e)
+        {
+            textSiretClient.Enabled = true;
+        }
+
+        private void part_CheckedChanged(object sender, EventArgs e)
+        {
+            textSiretClient.Enabled = false;
         }
     }
 }
