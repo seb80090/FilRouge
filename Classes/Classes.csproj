@@ -42,8 +42,8 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="ClientDAO.cs" />
-    <Compile Include="Commandes.cs" />
-    <Compile Include="commandesDAO.cs" />
+    <Compile Include="commandes.cs" />
+    <Compile Include="CommandesDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="service_commercial.cs" />
     <Compile Include="service_commercialDAO.cs" />
