@@ -37,10 +37,11 @@
             // ChoixClient
             // 
             this.ChoixClient.FormattingEnabled = true;
-            this.ChoixClient.Location = new System.Drawing.Point(354, 49);
+            this.ChoixClient.Location = new System.Drawing.Point(354, 22);
             this.ChoixClient.Name = "ChoixClient";
             this.ChoixClient.Size = new System.Drawing.Size(282, 21);
             this.ChoixClient.TabIndex = 0;
+            this.ChoixClient.SelectedIndexChanged += new System.EventHandler(this.ChoixClient_SelectedIndexChanged_1);
             // 
             // listCommande
             // 
@@ -49,6 +50,7 @@
             this.listCommande.Name = "listCommande";
             this.listCommande.Size = new System.Drawing.Size(490, 316);
             this.listCommande.TabIndex = 1;
+            this.listCommande.SelectedIndexChanged += new System.EventHandler(this.listCommande_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -62,7 +64,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(266, 52);
+            this.label1.Location = new System.Drawing.Point(268, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 3;

@@ -34,23 +34,16 @@ namespace WindowsFormsApplication4
 
         }
 
-        public void commandes_Load(object sender, EventArgs e)
+        public void Commandes_Load(object sender, EventArgs e)
         {
             //listCommande.DisplayMember = "Affichage";
             //listCommande.ValueMember = "num_commande";
             //listCommande.DataSource = reponse.List();
 
-            ChoixClient.DisplayMember = "Affichage";
-            ChoixClient.ValueMember = "num_client";
-            ChoixClient.DataSource = cli.List();
+
 
         }
 
-        private void choixClient_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listCommande.DisplayMember = "Affichage";
-            listCommande.DataSource = reponse.List((int)ChoixClient.SelectedValue);
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -62,7 +55,20 @@ namespace WindowsFormsApplication4
 
         private void Commandes_Load_1(object sender, EventArgs e)
         {
+            ChoixClient.DisplayMember = "Affichage";
+            ChoixClient.ValueMember = "num_client";
+            ChoixClient.DataSource = cli.List();
+        }
 
+        private void listCommande_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChoixClient_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            listCommande.DisplayMember = "Affichage";
+            listCommande.DataSource = reponse.List((int)ChoixClient.SelectedValue);
         }
     }
 }
