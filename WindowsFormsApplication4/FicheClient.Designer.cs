@@ -222,6 +222,7 @@
             this.btnHistComm.TabIndex = 98;
             this.btnHistComm.Text = "Historique commande";
             this.btnHistComm.UseVisualStyleBackColor = true;
+            this.btnHistComm.Click += new System.EventHandler(this.btnHistComm_Click);
             // 
             // btnCA
             // 

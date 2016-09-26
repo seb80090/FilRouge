@@ -574,5 +574,11 @@ namespace WindowsFormsApplication4
         {
             textSiretClient.Enabled = false;
         }
+
+        private void btnHistComm_Click(object sender, EventArgs e)
+        {
+            Commandes fenetre = new WindowsFormsApplication4.Commandes();
+            fenetre.Show();
+        }
     }
 }

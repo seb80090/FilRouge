@@ -70,5 +70,10 @@ namespace WindowsFormsApplication4
             listCommande.DisplayMember = "Affichage";
             listCommande.DataSource = reponse.List((int)ChoixClient.SelectedValue);
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
